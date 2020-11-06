@@ -1,31 +1,59 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Header from './components/Header';
+import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import StartScreen from './screens/StartScreen';
+import GameScreen from './screens/GameScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Ionicons } from '@expo/vector-icons';
+
+const Stack = createStackNavigator();
 
 export default function App() {
+    const startHeaderOptions = {
+        title: 'Lotería Mexicana',
+        headerStyle: {
+            backgroundColor: '#673ab7',
+        },
+        headerTintColor: '#fff',
+    };
+    const gametHeaderOptions = {
+        title: 'Lotería Mexicana',
+        headerStyle: {
+            backgroundColor: '#673ab7',
+        },
+        headerTintColor: '#fff',
+        headerRight: () => (
+            <TouchableOpacity
+                style={styles.button}
+                activeOpacity={0.6}
+            >
+                <Text style={styles.buttonText}>Nuevo Juego</Text>
+                <Text style={styles.buttonText}><Ionicons name="ios-arrow-forward" size={18} color="#fff" /></Text>
+            </TouchableOpacity>
+        ),
+    };
+
     return (
-        <View style={styles.container}>
-            <Header title="Lotería Mexicana" />
-            <StartScreen />
-            {/* <GameScreen /> */}
-            {/* <StatusBar style="auto" /> */}
-        </View>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen name="Start" component={StartScreen} options={startHeaderOptions} />
+                <Stack.Screen name="Play" component={GameScreen} options={gametHeaderOptions} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#f3e5f5',
-
-        // paddingTop: 10,
-        // alignItems: 'center',
-        // justifyContent: 'center',
+    button: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: 115,
+        paddingRight: 15,
     },
-    backgroundImage: {
-        width: '100%',
-        height: '100%',
+    buttonText: {
+        color: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
 });

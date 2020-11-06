@@ -63,10 +63,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         height: 150,
         backgroundColor: '#fff',
-        // elevation: 2,
     },
     image: {
-        width: 120,
+        width: 110,
         height: '100%',
     },
 });

@@ -5,7 +5,7 @@ import Start from './../components/Start';
 const StartScreen = (props) => {
     return (
         <View style={styles.container}>
-            <Start />
+            <Start navigation={props.navigation} />
         </View>
     );
 }
