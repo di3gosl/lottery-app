@@ -2,56 +2,28 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, Image } from 'react-native';
 
 const HistoryCards = (props) => {
+    const renderImages = () => {
+        const reversedImages = [...props.historyImages];
+        reversedImages.reverse();
+        return reversedImages.map((image, index) => {
+            const imgRequire = image['imgSrc'];
+            return (
+                <Image
+                    key={index}
+                    style={styles.image}
+                    source={imgRequire}
+                    resizeMode="contain"
+                />
+            );
+        });
+    };
+
     return (
         <View style={styles.container}>
             <ScrollView
                 horizontal
             >
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
-                <Image
-                    style={styles.image} 
-                    source={require('./../assets/images/camaron.jpg')} 
-                    resizeMode="contain"
-                />
+                {renderImages()}
             </ScrollView>
         </View>
     );
