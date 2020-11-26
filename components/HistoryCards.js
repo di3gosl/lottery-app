@@ -13,6 +13,7 @@ const HistoryCards = (props) => {
                     style={styles.image}
                     source={imgRequire}
                     resizeMode="contain"
+                    fadeDuration={0}
                 />
             );
         });

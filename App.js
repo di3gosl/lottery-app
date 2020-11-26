@@ -10,27 +10,30 @@ const Stack = createStackNavigator();
 
 export default function App() {
     const startHeaderOptions = {
-        title: 'Lotería Mexicana',
+        title: 'Lotería Mexicana by Mateo',
         headerStyle: {
             backgroundColor: '#673ab7',
         },
         headerTintColor: '#fff',
     };
-    const gametHeaderOptions = {
-        title: 'Lotería Mexicana',
-        headerStyle: {
-            backgroundColor: '#673ab7',
-        },
-        headerTintColor: '#fff',
-        headerRight: () => (
-            <TouchableOpacity
-                style={styles.button}
-                activeOpacity={0.6}
-            >
-                <Text style={styles.buttonText}>Nuevo Juego</Text>
-                <Text style={styles.buttonText}><Ionicons name="ios-arrow-forward" size={18} color="#fff" /></Text>
-            </TouchableOpacity>
-        ),
+    const gametHeaderOptions = ({ navigation }) => {
+        return {
+            title: 'Lotería Mexicana by Mateo',
+            headerStyle: {
+                backgroundColor: '#673ab7',
+            },
+            headerTintColor: '#fff',
+            // headerRight: (props) => (
+            //     <TouchableOpacity
+            //         style={styles.button}
+            //         activeOpacity={0.6}
+            //         onPress={() => navigation.replace('Play')}
+            //     >
+            //         <Text style={styles.buttonText}>Nuevo Juego</Text>
+            //         <Text style={styles.buttonText}><Ionicons name="ios-arrow-forward" size={18} color="#fff" /></Text>
+            //     </TouchableOpacity>
+            // ),
+        }
     };
 
     return (

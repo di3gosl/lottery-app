@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import MainCard from './../components/MainCard';
 import HistoryCards from './../components/HistoryCards';
-import { generateRandomNumber, allCards, findNewCard } from './../utils';
+import { findNewCard } from './../utils';
 import { Audio } from 'expo-av';
 
 const GameScreen = (props) => {
     const totalCards = 54;
-    // let firstCard = null;
-    // console.log(mainCardImage)
-    // firstCard = findNewCard(1, totalCards, []);
 
     const [mainCardImage, setMainCardImage] = useState(null);
     const [historyImages, setHistoryImages] = useState([]);
@@ -67,6 +64,7 @@ const GameScreen = (props) => {
                 playSound(card);
 
                 setHistoryImages((historyImages) => {
+                    console.log('Cards played: ', historyImages.length)
                     return [...historyImages, card];
                 });
             }, 2000);

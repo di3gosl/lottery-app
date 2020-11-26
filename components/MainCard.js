@@ -28,6 +28,7 @@ const MainCard = (props) => {
                     style={styles.image}
                     source={imgRequire}
                     resizeMode="contain"
+                    fadeDuration={0}
                 />
             </View>
         </View>
