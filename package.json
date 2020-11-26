@@ -26,5 +26,19 @@
   "devDependencies": {
     "@babel/core": "~7.9.0"
   },
-  "private": true
+  "private": true,
+  "expo": {
+    "name": "Mexican Lottery by Mateo",
+    "icon": "./assets/images/gallo.png",
+    "version": "0.0.1",
+    "slug": "mexican-lottery-by-mateo",
+    "ios": {
+      "bundleIdentifier": "com.di3gosl.mexican-lottery-by-mateo",
+      "buildNumber": "0.0.1"
+    },
+    "android": {
+      "package": "com.di3gosl.mexican-lottery-by-mateo",
+      "versionCode": 1
+    }
+  }
 }
